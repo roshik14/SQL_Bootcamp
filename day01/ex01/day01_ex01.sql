@@ -1,0 +1,21 @@
+SELECT
+    NAME AS OBJECT_NAME
+FROM
+    (SELECT
+        NAME
+     FROM
+        PERSON
+     ORDER BY
+        NAME)
+    AS PERSON
+UNION ALL
+SELECT
+    PIZZA_NAME AS OBJECT_NAME
+FROM
+    (SELECT
+        PIZZA_NAME
+    FROM
+        MENU
+    ORDER BY
+        PIZZA_NAME)
+    AS MENU

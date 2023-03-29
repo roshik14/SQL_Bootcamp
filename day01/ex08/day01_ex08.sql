@@ -1,0 +1,16 @@
+SELECT
+    ORDER_DATE,
+    (NAME || ' (age:' || AGE || ')') AS PERSON_INFORMATION
+FROM
+    (SELECT
+        ID AS PERSON_ID,
+        NAME,
+        AGE
+     FROM
+        PERSON
+    ) AS PERSON
+NATURAL JOIN
+    PERSON_ORDER
+ORDER BY
+    ORDER_DATE,
+    PERSON_INFORMATION
