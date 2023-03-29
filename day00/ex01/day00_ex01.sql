@@ -1,0 +1,8 @@
+SELECT
+    NAME, AGE
+FROM
+    PERSON
+WHERE
+    GENDER='female' and ADDRESS='Kazan'
+ORDER BY
+    NAME
