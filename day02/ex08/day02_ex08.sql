@@ -1,0 +1,18 @@
+WITH MENUS AS (
+    SELECT
+        ID
+    FROM
+        MENU
+    WHERE
+        PIZZA_NAME = 'pepperoni pizza' OR PIZZA_NAME = 'mushroom pizza'
+)
+SELECT DISTINCT
+    NAME
+FROM
+    PERSON
+JOIN PERSON_ORDER ON PERSON.ID = PERSON_ID
+JOIN MENUS ON MENU_ID = MENUS.ID
+WHERE
+    GENDER = 'male' AND (ADDRESS = 'Moscow' OR ADDRESS = 'Samara')
+ORDER BY
+    NAME DESC

@@ -1,0 +1,18 @@
+WITH DATES AS (
+    SELECT
+        T.MISSING_DATE::date
+    FROM
+        GENERATE_SERIES(timestamp '2022,01,01',
+                        timestamp '2022,01,10',
+                        interval '1 day') AS T(MISSING_DATE)
+)
+SELECT
+    MISSING_DATE
+FROM
+    DATES
+LEFT JOIN
+    PERSON_VISITS ON MISSING_DATE = VISIT_DATE AND (PERSON_ID = 1 OR PERSON_ID = 2)
+WHERE
+    VISIT_DATE IS NULL
+ORDER BY
+    MISSING_DATE

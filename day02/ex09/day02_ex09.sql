@@ -1,0 +1,26 @@
+WITH FEMALES AS (
+    SELECT
+        NAME, PIZZA_NAME
+    FROM
+        PERSON
+    JOIN PERSON_ORDER ON PERSON.ID = PERSON_ID
+    JOIN MENU ON PERSON_ORDER.MENU_ID = MENU.ID
+    WHERE
+        GENDER = 'female' AND (PIZZA_NAME = 'cheese pizza' OR PIZZA_NAME = 'pepperoni pizza')
+)
+SELECT
+    NAME
+FROM
+    FEMALES
+GROUP BY
+    NAME
+HAVING
+    (SELECT
+        COUNT(PIZZA_NAME)
+    FROM
+        FEMALES AS TMP
+    WHERE
+        FEMALES.NAME =  TMP.NAME
+    ) =  2
+ORDER BY
+    NAME

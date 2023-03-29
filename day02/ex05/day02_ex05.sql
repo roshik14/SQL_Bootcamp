@@ -1,0 +1,8 @@
+SELECT
+    NAME
+FROM
+    PERSON
+WHERE
+    AGE > 25
+ORDER BY
+    NAME
